@@ -7,6 +7,3 @@ select = ["ALL"]
 ignore = ["EM", "FBT", "TRY003", "S101", "D1", "FA", "ANN101"]
 pydocstyle.convention = "google"
 
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
