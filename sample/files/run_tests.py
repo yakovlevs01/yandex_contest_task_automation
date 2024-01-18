@@ -13,12 +13,53 @@ except:
     pass
 
 
+def read_dict_str_int():
+    s = input()
+    if s == "{}":
+        return {}
+    return literal_eval(s)
+
+
+def read_enumeration_of_ints():
+    s = input()
+    if s == "":
+        return []
+    return list(map(int, s.split(", ")))
+
+
+def read_enumeration_of_strs():
+    s = input()
+    if s == "":
+        return []
+    return s.split(", ")
+
+
+def read_enumeration_of_strange_things():
+    s = input()
+    if s == "":
+        return []
+    result = []
+    for item in s.split(", "):
+        try:
+            result.append(literal_eval(item))
+        except:
+            result.append(item)
+    return result
+
+
 def read_list_of_ints() -> tuple[set[Any], int]:
-    return list(map(int, input()[1:-1].split(", ")))
+    s = input()
+    if s == "[]":
+        return []
+    return list(map(int, s[1:-1].split(", ")))
 
 
 def read_list_of_strs():
-    return [x[1:-1] for x in input()[1:-1].split(", ")]
+    s = input()
+
+    if s == "[]":
+        return []
+    return [x[1:-1] for x in s[1:-1].split(", ")]
 
 
 def read_list_of_any_or_str_or_range_or_tuple(s: str = None):
@@ -40,8 +81,7 @@ def read_list_of_any_or_str_or_range_or_tuple(s: str = None):
             except:
                 result.append(item)
         return result
-    else:
-        return input_string
+    return input_string
 
 
 def read_list_of_strange_things(s: str = None):
@@ -97,12 +137,10 @@ def dict_to_str_for_print(d):
     result = "{"
     for k, v in sorted(d.items()):
         result += f"'{k}': {v}" + ", "
+    result = result[:-2]
     result += "}"
     return result
 
 
 if __name__ == "__main__":
-    x = read_list_of_any_or_str_or_range_or_tuple()
-    result = make_set(x)
-
-    print("(" + set_to_str_for_print(result[0]) + ", " + str(result[1]) + ")")
+    pass
