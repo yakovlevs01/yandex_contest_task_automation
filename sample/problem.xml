@@ -10,11 +10,21 @@
         <testset name="tests">
             <time-limit>1000</time-limit>
             <memory-limit>268435456</memory-limit>
-            <test-count>placeholder_ntests</test-count>
-            <input-path-pattern>tests/{02-}</input-path-pattern>
+            <test-count>1</test-count>
+            <input-path-pattern>tests/%02d</input-path-pattern>
             <answer-path-pattern>tests/%02d.a</answer-path-pattern>
             <tests>
                 <test method="manual" sample="true"/>
+                <test method="manual"/>
+            </tests>
+        </testset>
+        <testset name="tests_all">
+            <time-limit>1000</time-limit>
+            <memory-limit>268435456</memory-limit>
+            <test-count>placeholder_ntests</test-count>
+            <input-path-pattern>tests/{03-}</input-path-pattern>
+            <answer-path-pattern>tests/%02d.a</answer-path-pattern>
+            <tests>
                 <test method="manual"/>
             </tests>
         </testset>

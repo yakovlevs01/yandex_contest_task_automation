@@ -143,4 +143,5 @@ def dict_to_str_for_print(d):
 
 
 if __name__ == "__main__":
-    pass
+    d = literal_eval(input())
+    print(bin_ip(d))
