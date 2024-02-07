@@ -8,26 +8,27 @@ answer_file = sys.argv[3]
 delta = 1e-2
 task_cost = 1
 
-sol_file = open(solution_result_file, mode="r")
-ans_file = open(answer_file, mode="r")
-s = sol_file.readlines()
-a = ans_file.readlines()
+with open(solution_result_file) as sol_file, open(answer_file) as ans_file:
+    s = sol_file.readlines()
+    a = ans_file.readlines()
+
+if len(a) != len(s):
+    print(
+        f"0 Wrong answer. Number of lines differs from the answer.\n Your solution contains {len(s)} lines, while the answer contains {len(a)} lines."
+    )
+    sys.exit(1)
 
 for i in range(len(s)):
     s[i] = s[i].strip()
     a[i] = a[i].strip()
 
     try:
-        s[i] = float(s[i])
-        a[i] = float(a[i])
-        if not abs(s[i] - a[i]) < delta:
-            print(
-                f"0 Wrong answer. Your answer {s[i]} differs from {a[i]} by more than {delta}."  # noqa: E501
-            )
+        if not abs(float(s[i]) - float(a[i])) < delta:
+            print(f"0 Wrong answer.\n Your answer {float(s[i])} differs from {float(a[i])} by more than {delta}.")
             sys.exit(1)
     except:  # noqa: E722
-        if not s[i].lower() == a[i].lower():
-            print(f"0 Wrong answer. Your answer {s[i]} differs from {a[i]}.")
+        if s[i] != a[i]:
+            print(f"0 Wrong answer.\n Your answer {s[i]} differs from {a[i]}")
             sys.exit(1)
 
 print(f"{task_cost} OK")

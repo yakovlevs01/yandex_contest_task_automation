@@ -33,6 +33,9 @@
         <resources>
             <file path="files/testlib.h" type="h.g++"/>
         </resources>
+        <attachments>
+            <file path="data/Esenin.txt"/>
+        </attachments>
     </files>
     <assets>
         <checker name="checker_1.py" type="testlib">
